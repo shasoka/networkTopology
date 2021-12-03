@@ -118,16 +118,6 @@ if is_full_connected(args.v, args.r, args.links):
     print('Сеть полносвязная.')
     quit()
 else:
-    temp = connection_type(args.v, args.r, args.links)
-    if temp == 1:
-        print('Неполносвязная сеть типа "шина"')
-        quit()
-    if temp == 2:
-        print('Неполносвязная сеть типа "кольцо"')
-        quit()
-    if temp == 3:
-        print('Неполносвязная сеть типа "звезда"')
-        quit()
-    if temp == 4:
-        print('Неполносвязная сеть неопознанного типа')
-        quit()
+    connections = {1: 'Шина', 2: 'Кольцо', 3: 'Звезда', 4: 'Неопознанная'}
+    print(f'Неполносвязная сеть типа '
+          f'"{connections[connection_type(args.v, args.r, args.links)]}"')
