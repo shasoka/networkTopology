@@ -29,6 +29,26 @@ CLI.add_argument("links", type=int, nargs='*',
                       ' Vj ... Вершины нумеруются с 0.')
 args = CLI.parse_args()
 
+if args.v <= 4 or args.r <= 3:
+    CLI.error('Неверный ввод. Число вершин должно быть больше 4, ребер - '
+              'больше 3.')
+
+if args.r > len(list(itertools.combinations(range(args.v), 2))):
+    CLI.error('Неверный ввод числа ребер. Ребер больше, чем может '
+              'существовать в данной системе.')
+
+if len(args.links) % 2 != 0:
+    CLI.error('Неверный ввод координат связей. Нечетное число координат.')
+
+if len(args.links) / 2 != args.r:
+    CLI.error('Неверный ввод. Число ребер не совпадает с количеством пар '
+              'связей')
+
+for i in range(len(args.links)):
+    if args.links[i] >= args.v:
+        CLI.error(f'Неверный ввод координат связей. Вершины с координатой '
+                  f'{args.links[i]} в заданной системе не существует.')
+
 args.links = list(zip(*[iter(args.links)] * 2))
 args.links = list(map(lambda x: tuple(sorted(x)), args.links))
 
@@ -36,3 +56,4 @@ if is_full_connected(args.v, args.r, args.links):
     print('Сеть полносвязная.')
     quit()
 # else:
+        
