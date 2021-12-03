@@ -27,6 +27,11 @@ def connection_type(apexes, edges, links):
     1 - шина, 2 - кольцо, 3 - звезда.
     """
 
+    # 5 4 0 1 1 2 2 3 3 4 - шина
+    # 5 5 0 1 1 2 2 3 3 4 0 4 - кольцо
+    # 5 4 1 0 2 0 0 3 4 0 - звезда
+    # 5 5 0 1 1 2 2 3 3 4 4 1 - неопознанный тип
+
     class ConnectionType(Enum):
         """
         Enum перечисление возможных вариантов.
@@ -34,9 +39,20 @@ def connection_type(apexes, edges, links):
         tire = 1
         ring = 2
         star = 3
+        unrecognized = 4
 
     if apexes == edges:
-        return ConnectionType.ring.value
+        k = 0
+        for i in range(1, apexes):
+            if (i-1, i) in links:
+                k += 1
+            else:
+                k = 0
+                break
+        if k == edges - 1 and (0, apexes - 1) in links:
+            return ConnectionType.ring.value
+        else:
+            return ConnectionType.unrecognized.value
     elif apexes == edges + 1:
         is_star = False
         for i in range(apexes):
@@ -62,6 +78,8 @@ def connection_type(apexes, edges, links):
                     break
             if t == edges:
                 return ConnectionType.tire.value
+            else:
+                return ConnectionType.unrecognized.value
 
 
 CLI = argparse.ArgumentParser(description='Данная программа умеет определять '
@@ -109,4 +127,7 @@ else:
         quit()
     if temp == 3:
         print('Неполносвязная сеть типа "звезда"')
+        quit()
+    if temp == 4:
+        print('Неполносвязная сеть неопознанного типа')
         quit()
