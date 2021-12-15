@@ -45,7 +45,8 @@ def test_unrecognized():
     Тест на принадлежность сети типу Неопознанная.
     """
 
-    assert connection_type(5, 5, [(0, 1), (1, 2), (2, 3), (3, 4), (1, 4)]) == 4
+    assert connection_type(5, 5, [(0, 1), (1, 2), (2, 3), (3, 4), (0, 0)]) \
+           is None
 
 
 def test_unrecognized_odd():

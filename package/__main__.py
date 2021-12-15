@@ -31,7 +31,7 @@ def main():
         print('Сеть полносвязная.')
         quit()
     else:
-        connections = {1: 'Шина', 2: 'Кольцо', 3: 'Звезда', 4: 'Неопознанная',
+        connections = {1: 'Шина', 2: 'Кольцо', 3: 'Звезда',
                        None: 'Неопознанная'}
         print(f'Неполносвязная сеть типа '
               f'"{connections[connection_type(args.v, args.r, args.links)]}"')
