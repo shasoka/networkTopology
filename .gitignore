@@ -2,3 +2,5 @@
 /.idea
 *.docx
 *.rar
+__pycache__
+.pytest_cache
