@@ -2,15 +2,26 @@
 Тесты для функции connection_type модуля connections.
 """
 
+import pytest
 from package.connections import connection_type
 
 
-def test_tire():
+@pytest.fixture
+def generate_for_tire():
+    """
+    Функция-фикстура. Результат данной функции служит входными данными для
+    теста.
+    """
+
+    return 5, 4, [(0, 1), (1, 2), (2, 3), (3, 4)]
+
+
+def test_tire(generate_for_tire):
     """
     Тест на принадлежность сети типу Шина.
     """
 
-    assert connection_type(5, 4, [(0, 1), (1, 2), (2, 3), (3, 4)]) == 1
+    assert connection_type(*generate_for_tire) == 1
 
 
 def test_ring():
