@@ -53,3 +53,5 @@ def connection_type(apexes: int, edges: int, links: list) -> int:
                     t += 1
             if t == edges:
                 return ConnectionType.tire.value
+
+    # print(links)

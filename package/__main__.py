@@ -25,16 +25,16 @@ def main():
                         'V1 V2 V1 V3 Vi Vj ... Вершины нумеруются с 0.')
     args = parser.parse_args()
 
-    input_check(args.v, args.r, args.links, parser)
+    links_ready = input_check(args.v, args.r, args.links, parser)
 
-    if is_full_connected(args.v, args.r, args.links):
+    if is_full_connected(args.v, args.r, links_ready):
         print('Сеть полносвязная.')
         quit()
     else:
         connections = {1: 'Шина', 2: 'Кольцо', 3: 'Звезда',
                        None: 'Неопознанная'}
         print(f'Неполносвязная сеть типа '
-              f'"{connections[connection_type(args.v, args.r, args.links)]}"')
+              f'"{connections[connection_type(args.v, args.r, links_ready)]}"')
 
 
 if __name__ == '__main__':

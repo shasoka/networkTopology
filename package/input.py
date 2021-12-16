@@ -24,15 +24,15 @@ def input_check(v: int, r: int, links_ori: list, parser):
         parser.error('Неверный ввод. Число вершин должно быть больше 4, ребер '
                      '- больше 3.')
 
-    if r > len(list(itertools.combinations(range(v), 2))):
+    elif r > len(list(itertools.combinations(range(v), 2))):
         parser.error('Неверный ввод числа ребер. Ребер больше, чем может '
                      'существовать в данной системе.')
 
-    if len(links_ori) % 2 != 0:
+    elif len(links_ori) % 2 != 0:
         parser.error('Неверный ввод координат связей. Нечетное число '
                      'координат.')
 
-    if len(links) != r:
+    elif len(links) != r:
         parser.error('Неверный ввод. Число ребер не совпадает с количеством '
                      'пар связей')
 
@@ -41,3 +41,5 @@ def input_check(v: int, r: int, links_ori: list, parser):
             parser.error(f'Неверный ввод координат связей. Вершины с '
                          f'координатой {links[i]} в заданной системе'
                          f' не существует.')
+
+    return links
