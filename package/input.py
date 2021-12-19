@@ -1,20 +1,32 @@
 """
 Функция, проверяющая входные данные.
 
-Шенберг Аркадий Алексеевич. КИ21-17/1Б. Практическая работа 5. Вариант 11.
+Шенберг Аркадий Алексеевич. КИ21-17/1Б. Практическая работа 6. Вариант 11.
+
+Функции:
+---------
+input_check:
+    Аргументы:
+        v: int, число вершин;
+        r: int, число ребер;
+        links_ori: list, список пар связей;
+        parserargpasre.ArgumentParser, парсер аргументов.
+
+        return: links: list, готовый список пар связей.
 """
 
 import itertools
 
 
-def input_check(v: int, r: int, links_ori: list, parser):
+def input_check(v: int, r: int, links_ori: list, parser) -> list:
     """
     Функция, проверяющая вводимые данные.
 
     :param v: int, число вершин;
     :param r: int, число ребер;
     :param links_ori: list, список пар связей;
-    :param parser: argpasre.ArgumentParser, парсер аргументов.
+    :param parser: argpasre.ArgumentParser, парсер аргументов;
+    :return links: list, подготовленный к работе список связей.
     """
 
     links = list(zip(*[iter(links_ori)] * 2))
