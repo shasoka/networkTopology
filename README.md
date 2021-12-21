@@ -152,5 +152,7 @@ def connection_type(apexes: int, edges: int, links: list) -> int:
 ```
 В соответсвии с практической работой №6 все функции имеют информативную строку документации (см. [Docstring](https://www.python.org/dev/peps/pep-0257/)).
 
-**Удачи!**:no_mouth:
-![asuka](https://pngset.com/images/asuka-langley-soryu-official-art-comics-book-manga-person-transparent-png-282709.png)
+**Спасибо. Удачи!** :no_mouth:
+
+
+![asuka](https://en.memesrandom.com/wp-content/uploads/2021/02/cosplay-asuka-brasileira.jpg)
