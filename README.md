@@ -1,6 +1,6 @@
 # **Пакет, решающий задачу о топологии сетей**
 ![](https://img.shields.io/github/watchers/shasoka/prac_6?style=social)
-## **1. Структура проекта**:
+## **1. Структура проекта**
 ```
 prac_6
 |    \
