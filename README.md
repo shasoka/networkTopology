@@ -15,9 +15,9 @@ prac_6
 |    |   |input.py
 |    |   |tests
 |    |   |    \   
-|    |   |   |__init__.py
-|    |   |   |test_connections.py
-|    |   |   |test_full.py
+|    |   |    |__init__.py
+|    |   |    |test_connections.py
+|    |   |    |test_full.py
 ```
 ## **2. Описание**
 Пакет package предназачен для решения задачи "О топологии сетей" практической работы №4 по ВВПД (см. [Топология сетей](https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%82%D0%B5%D0%B2%D0%B0%D1%8F_%D1%82%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F)).
